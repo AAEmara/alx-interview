@@ -21,18 +21,19 @@ def canUnlockAll(boxes: typing.Union[typing.List[typing.List], typing.List])\
     locks = {lock for lock in range(1, len(boxes))}  # Locks to be unlocked.
     used_keys = {0}  # Initial key #0 used.
 
+    print("---- problem start ----")
     while keys:
         key = keys.pop()
-        if key > len(boxes) or key <= 0:
+        if key >= len(boxes) or key <= 0:
             continue
         used_keys.add(key)
         keys.update(new_key for new_key in boxes[key]
                     if new_key not in used_keys)
-        # print(f"Locks before removing lock[{key}]")
-        # print(f"The locks: {locks}")
+        print(f"Locks before removing lock[{key}]")
+        print(f"The locks: {locks}")
         locks.remove(key)
-        # print(f"Locks after removing lock[{key}]")
-        # print(f"The locks: {locks}")
+        print(f"Locks after removing lock[{key}]")
+        print(f"The locks: {locks}")
 
     if (len(locks)):
         return False

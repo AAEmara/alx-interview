@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """A module that defines a function that represents the Pascal's triangle."""
 
-from typing import List
 
-
-def pascal_triangle(n: int) -> List:
+def pascal_triangle(n: int):
     """Represents the Pacal's triangle of certain iterations.
     Args:
         n : The number of rows of the pascal's triangle.
@@ -28,13 +26,14 @@ def pascal_triangle(n: int) -> List:
     return (pascals_list)
 
 
-def create_new_row(n: int, prev_list: List) -> List:
+def create_new_row(n: int, prev_list):
     """Creates a new row based on the previous row list and its items.
     Args:
         n: The number of new row (starting from 1).
-        prev_list: The list that represents the previous row to the newer one.
+        prev_list (list): The list that represents the previous row to
+                          the newer one.
     Returns:
-        The newly created row based on pascal's triangle method.
+        The newly created row based on pascal's triangle method as a list.
     """
     new_list = [1]
     for i in range(1, n):

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """A module that defines a function that represents the Pascal's triangle."""
 
 from typing import List

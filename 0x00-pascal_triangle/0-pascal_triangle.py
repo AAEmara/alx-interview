@@ -27,6 +27,7 @@ def pascal_triangle(n: int) -> List:
             continue
     return (pascals_list)
 
+
 def create_new_row(n: int, prev_list: List) -> List:
     """Creates a new row based on the previous row list and its items.
     Args:

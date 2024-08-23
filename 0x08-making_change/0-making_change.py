@@ -25,7 +25,7 @@ def makeChange(coins, total):
         if i > index_max:
             made_change = False  # Failure.
             break
-        coin_tested = sorted_coins[i]  # Coin to be compared with the total amount.
+        coin_tested = sorted_coins[i]  # Coin to be compared with total amount.
         if (total >= coin_tested):
             total = total - coin_tested
             coins_used.append(coin_tested)

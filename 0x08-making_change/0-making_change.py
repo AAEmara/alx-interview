@@ -13,13 +13,25 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    current_total = 0
-    used_coins = 0
-    coins = sorted(coins, reverse=True)
-    for coin in coins:
-        r = (total - current_total) // coin
-        current_total += r * coin
-        used_coins += r
-        if current_total == total:
-            return used_coins
-    return -1
+    # Sorting the coins in descending order.
+    sorted_coins = sorted(coins, reverse=True)
+
+    index_max = len(coins) - 1
+    made_change = True
+    coins_used = list()
+    i = 0
+
+    while (total > 0):
+        if i > index_max:
+            made_change = False  # Failure.
+            break
+        coin_tested = sorted_coins[i]  # Coin to be compared with the total amount.
+        if (total >= coin_tested):
+            total = total - coin_tested
+            coins_used.append(coin_tested)
+            continue  # To check if the same coin could be used again.
+        i += 1
+
+    if not made_change:
+        return (-1)  # Failed to make change for the total amount given.
+    return (len(coins_used))  # Success.
